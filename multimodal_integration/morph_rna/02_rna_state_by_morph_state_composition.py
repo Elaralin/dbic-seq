@@ -48,7 +48,7 @@ comp["fraction_within_Morph_state"] = (
 )
 
 comp.to_csv(
-    tabdir / "AD715_46a_RNA_state_by_Morph_state_composition.tsv",
+    tabdir / "AD715_RNA_state_by_Morph_state_composition.tsv",
     sep="\t",
     index=False
 )
@@ -67,8 +67,8 @@ mat_frac = (
     .loc[rna_states, morph_states]
 )
 
-mat_count.to_csv(tabdir / "AD715_46a_RNA_state_by_Morph_state_count_matrix.tsv", sep="\t")
-mat_frac.to_csv(tabdir / "AD715_46a_RNA_state_by_Morph_state_fraction_matrix.tsv", sep="\t")
+mat_count.to_csv(tabdir / "AD715_RNA_state_by_Morph_state_count_matrix.tsv", sep="\t")
+mat_frac.to_csv(tabdir / "AD715_RNA_state_by_Morph_state_fraction_matrix.tsv", sep="\t")
 
 # ------------------------------------------------------------
 # 2. Fisher enrichment RNA state x Morph state
@@ -105,7 +105,7 @@ enrich["neglog10_padj"] = -np.log10(enrich["padj"] + 1e-300)
 enrich = enrich.sort_values(["RNA_state", "Morph_state"])
 
 enrich.to_csv(
-    tabdir / "AD715_46a_RNA_state_by_Morph_state_Fisher_enrichment.tsv",
+    tabdir / "AD715_RNA_state_by_Morph_state_Fisher_enrichment.tsv",
     sep="\t",
     index=False
 )
@@ -119,7 +119,7 @@ odds_mat = (
 )
 
 logor_mat = np.log2(odds_mat.replace(0, np.nan)).replace([np.inf, -np.inf], np.nan).fillna(0)
-logor_mat.to_csv(tabdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_matrix.tsv", sep="\t")
+logor_mat.to_csv(tabdir / "AD715_RNA_state_by_Morph_state_log2OR_matrix.tsv", sep="\t")
 
 # ------------------------------------------------------------
 # 3. Dominant Morph state per RNA state
@@ -142,7 +142,7 @@ bridge["RNA_state"] = pd.Categorical(bridge["RNA_state"], categories=rna_states,
 bridge = bridge.sort_values("RNA_state")
 
 bridge.to_csv(
-    tabdir / "AD715_46a_RNA_state_to_dominant_Morph_state_bridge.tsv",
+    tabdir / "AD715_RNA_state_to_dominant_Morph_state_bridge.tsv",
     sep="\t",
     index=False
 )
@@ -157,7 +157,7 @@ links["edge_type"] = "RNA_state_to_Morph_state"
 links["weight"] = links["fraction_within_RNA_state"]
 
 links[["source", "target", "edge_type", "weight", "n"]].to_csv(
-    tabdir / "AD715_46a_network_links_RNA_state_to_Morph_state.tsv",
+    tabdir / "AD715_network_links_RNA_state_to_Morph_state.tsv",
     sep="\t",
     index=False
 )
@@ -182,9 +182,9 @@ ax.set_title("Morphology-state composition of RNA states")
 ax.legend(frameon=False, bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8)
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_stacked_bar.pdf")
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_stacked_bar.png", dpi=400)
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_stacked_bar.svg")
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_stacked_bar.pdf")
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_stacked_bar.png", dpi=400)
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_stacked_bar.svg")
 plt.close(fig)
 
 # ------------------------------------------------------------
@@ -212,20 +212,20 @@ cbar = plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
 cbar.set_label("log2 odds ratio")
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_heatmap.pdf")
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_heatmap.png", dpi=400)
-fig.savefig(figdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_heatmap.svg")
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_log2OR_heatmap.pdf")
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_log2OR_heatmap.png", dpi=400)
+fig.savefig(figdir / "AD715_RNA_state_by_Morph_state_log2OR_heatmap.svg")
 plt.close(fig)
 
 print("[DONE] 46a RNA state -> Morphology state")
-print(tabdir / "AD715_46a_RNA_state_by_Morph_state_composition.tsv")
-print(tabdir / "AD715_46a_RNA_state_by_Morph_state_fraction_matrix.tsv")
-print(tabdir / "AD715_46a_RNA_state_by_Morph_state_Fisher_enrichment.tsv")
-print(tabdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_matrix.tsv")
-print(tabdir / "AD715_46a_RNA_state_to_dominant_Morph_state_bridge.tsv")
-print(tabdir / "AD715_46a_network_links_RNA_state_to_Morph_state.tsv")
-print(figdir / "AD715_46a_RNA_state_by_Morph_state_stacked_bar.pdf")
-print(figdir / "AD715_46a_RNA_state_by_Morph_state_log2OR_heatmap.pdf")
+print(tabdir / "AD715_RNA_state_by_Morph_state_composition.tsv")
+print(tabdir / "AD715_RNA_state_by_Morph_state_fraction_matrix.tsv")
+print(tabdir / "AD715_RNA_state_by_Morph_state_Fisher_enrichment.tsv")
+print(tabdir / "AD715_RNA_state_by_Morph_state_log2OR_matrix.tsv")
+print(tabdir / "AD715_RNA_state_to_dominant_Morph_state_bridge.tsv")
+print(tabdir / "AD715_network_links_RNA_state_to_Morph_state.tsv")
+print(figdir / "AD715_RNA_state_by_Morph_state_stacked_bar.pdf")
+print(figdir / "AD715_RNA_state_by_Morph_state_log2OR_heatmap.pdf")
 print()
 print("[Bridge]")
 print(bridge)

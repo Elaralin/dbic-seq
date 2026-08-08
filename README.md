@@ -100,7 +100,14 @@ Core transcriptomic analysis of drug-perturbation experiments.
 
 Scripts for integrating morphology and transcriptomic states.
 
-The `morph_rna/` workflow contains the core analyses used to relate drug perturbations, RNA states, and morphology states at the single-cell level.
+#### `morph_rna/`
+
+- `01_morph_state_by_rna_state_coupling.py`
+  Analysis of RNA-state composition and coupling across morphology states.
+- `02_rna_state_by_morph_state_composition.py`
+  Analysis of morphology-state composition across RNA states.
+- `03_drug_rna_morphology_integration.py`
+  Integrated analysis of drug perturbations, RNA states, and morphology states.
 
 ### `environment/`
 

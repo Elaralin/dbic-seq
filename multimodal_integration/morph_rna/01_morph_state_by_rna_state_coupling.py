@@ -80,7 +80,7 @@ comp["fraction_within_RNA"] = (
 )
 
 comp.to_csv(
-    tabdir / "AD715_48a_Morph_RNA_composition.tsv",
+    tabdir / "AD715_Morph_RNA_composition.tsv",
     sep="\t",
     index=False
 )
@@ -101,8 +101,8 @@ frac_mat = (
     .fillna(0)
 )
 
-count_mat.to_csv(tabdir / "AD715_48a_Morph_RNA_count_matrix.tsv", sep="\t")
-frac_mat.to_csv(tabdir / "AD715_48a_Morph_RNA_fraction_matrix.tsv", sep="\t")
+count_mat.to_csv(tabdir / "AD715_Morph_RNA_count_matrix.tsv", sep="\t")
+frac_mat.to_csv(tabdir / "AD715_Morph_RNA_fraction_matrix.tsv", sep="\t")
 
 # ------------------------------------------------------------
 # 2. Fisher enrichment Morph x RNA
@@ -154,7 +154,7 @@ enrich["log2_odds_ratio"] = (
 enrich = enrich.sort_values(["Morph_state", "RNA_state"])
 
 enrich.to_csv(
-    tabdir / "AD715_48a_Morph_RNA_Fisher_enrichment.tsv",
+    tabdir / "AD715_Morph_RNA_Fisher_enrichment.tsv",
     sep="\t",
     index=False
 )
@@ -180,9 +180,9 @@ delta_mat = (
     .fillna(0)
 )
 
-logor_mat.to_csv(tabdir / "AD715_48a_Morph_RNA_log2OR_matrix.tsv", sep="\t")
-padj_mat.to_csv(tabdir / "AD715_48a_Morph_RNA_padj_matrix.tsv", sep="\t")
-delta_mat.to_csv(tabdir / "AD715_48a_Morph_RNA_agreement_delta_matrix.tsv", sep="\t")
+logor_mat.to_csv(tabdir / "AD715_Morph_RNA_log2OR_matrix.tsv", sep="\t")
+padj_mat.to_csv(tabdir / "AD715_Morph_RNA_padj_matrix.tsv", sep="\t")
+delta_mat.to_csv(tabdir / "AD715_Morph_RNA_agreement_delta_matrix.tsv", sep="\t")
 
 # ------------------------------------------------------------
 # 3. Dominant RNA per Morph
@@ -215,7 +215,7 @@ for morph in morph_order:
 bridge = pd.DataFrame(bridge_rows)
 
 bridge.to_csv(
-    tabdir / "AD715_48a_Morph_to_dominant_RNA_bridge.tsv",
+    tabdir / "AD715_Morph_to_dominant_RNA_bridge.tsv",
     sep="\t",
     index=False
 )
@@ -248,9 +248,9 @@ cbar = plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
 cbar.set_label("Fraction within Morph state", fontsize=9)
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_48a_Morph_RNA_fraction_heatmap.pdf")
-fig.savefig(figdir / "AD715_48a_Morph_RNA_fraction_heatmap.png", dpi=500)
-fig.savefig(figdir / "AD715_48a_Morph_RNA_fraction_heatmap.svg")
+fig.savefig(figdir / "AD715_Morph_RNA_fraction_heatmap.pdf")
+fig.savefig(figdir / "AD715_Morph_RNA_fraction_heatmap.png", dpi=500)
+fig.savefig(figdir / "AD715_Morph_RNA_fraction_heatmap.svg")
 plt.close(fig)
 
 # ------------------------------------------------------------
@@ -305,9 +305,9 @@ cbar = plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
 cbar.set_label("log2 odds ratio", fontsize=9)
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_48a_Morph_RNA_log2OR_heatmap.pdf")
-fig.savefig(figdir / "AD715_48a_Morph_RNA_log2OR_heatmap.png", dpi=500)
-fig.savefig(figdir / "AD715_48a_Morph_RNA_log2OR_heatmap.svg")
+fig.savefig(figdir / "AD715_Morph_RNA_log2OR_heatmap.pdf")
+fig.savefig(figdir / "AD715_Morph_RNA_log2OR_heatmap.png", dpi=500)
+fig.savefig(figdir / "AD715_Morph_RNA_log2OR_heatmap.svg")
 plt.close(fig)
 
 # ------------------------------------------------------------
@@ -354,9 +354,9 @@ ax.legend(
 )
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_48a_Morph_RNA_stacked_bar.pdf")
-fig.savefig(figdir / "AD715_48a_Morph_RNA_stacked_bar.png", dpi=500)
-fig.savefig(figdir / "AD715_48a_Morph_RNA_stacked_bar.svg")
+fig.savefig(figdir / "AD715_Morph_RNA_stacked_bar.pdf")
+fig.savefig(figdir / "AD715_Morph_RNA_stacked_bar.png", dpi=500)
+fig.savefig(figdir / "AD715_Morph_RNA_stacked_bar.svg")
 plt.close(fig)
 
 # ------------------------------------------------------------
@@ -418,21 +418,21 @@ cbar = plt.colorbar(sm, ax=ax, fraction=0.046, pad=0.04)
 cbar.set_label("log2 odds ratio", fontsize=9)
 
 plt.tight_layout()
-fig.savefig(figdir / "AD715_48a_Morph_to_dominant_RNA_dotplot.pdf")
-fig.savefig(figdir / "AD715_48a_Morph_to_dominant_RNA_dotplot.png", dpi=500)
-fig.savefig(figdir / "AD715_48a_Morph_to_dominant_RNA_dotplot.svg")
+fig.savefig(figdir / "AD715_Morph_to_dominant_RNA_dotplot.pdf")
+fig.savefig(figdir / "AD715_Morph_to_dominant_RNA_dotplot.png", dpi=500)
+fig.savefig(figdir / "AD715_Morph_to_dominant_RNA_dotplot.svg")
 plt.close(fig)
 
 print("[DONE] 48a Morphology state x RNA state coupling")
-print(tabdir / "AD715_48a_Morph_RNA_composition.tsv")
-print(tabdir / "AD715_48a_Morph_RNA_fraction_matrix.tsv")
-print(tabdir / "AD715_48a_Morph_RNA_log2OR_matrix.tsv")
-print(tabdir / "AD715_48a_Morph_RNA_Fisher_enrichment.tsv")
-print(tabdir / "AD715_48a_Morph_to_dominant_RNA_bridge.tsv")
-print(figdir / "AD715_48a_Morph_RNA_fraction_heatmap.pdf")
-print(figdir / "AD715_48a_Morph_RNA_log2OR_heatmap.pdf")
-print(figdir / "AD715_48a_Morph_RNA_stacked_bar.pdf")
-print(figdir / "AD715_48a_Morph_to_dominant_RNA_dotplot.pdf")
+print(tabdir / "AD715_Morph_RNA_composition.tsv")
+print(tabdir / "AD715_Morph_RNA_fraction_matrix.tsv")
+print(tabdir / "AD715_Morph_RNA_log2OR_matrix.tsv")
+print(tabdir / "AD715_Morph_RNA_Fisher_enrichment.tsv")
+print(tabdir / "AD715_Morph_to_dominant_RNA_bridge.tsv")
+print(figdir / "AD715_Morph_RNA_fraction_heatmap.pdf")
+print(figdir / "AD715_Morph_RNA_log2OR_heatmap.pdf")
+print(figdir / "AD715_Morph_RNA_stacked_bar.pdf")
+print(figdir / "AD715_Morph_to_dominant_RNA_dotplot.pdf")
 print()
 print("[Bridge]")
 print(bridge)
