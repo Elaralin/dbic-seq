@@ -1,14 +1,21 @@
 # Computational environments
 
-DBiC analyses were performed using dedicated Python and Conda environments for image processing, morphology analysis, transcriptomic analysis, and CAJAL-based shape analysis.
+DBiC-seq analyses use dedicated computational environments for image processing, morphology analysis, transcriptomic analysis, and CAJAL-based shape analysis.
+
+## Software
+
+The core workflows use Python, R, MATLAB, and CAJAL. Major Python and R dependencies include packages for numerical computing, image processing, single-cell transcriptomic analysis, statistical analysis, and visualization.
+
+Environment-specific dependencies may vary across analysis modules.
 
 ## Data paths
 
-For drug-perturbation analyses, specify the data root using:
+Raw sequencing and imaging data are not stored in this repository.
+
+For drug-perturbation analyses, the data root can be specified using:
 
 ```bash
 export DBIC_DATA_ROOT=/path/to/AD715
-
 ```
 
 If not specified, scripts use:
@@ -24,4 +31,4 @@ export DBIC_CAJAL_INPUT_DIR=/path/to/input_masks
 export DBIC_CAJAL_OUTPUT_DIR=/path/to/output_masks
 ```
 
-Software dependencies and package versions will be provided with the final release.
+Users may modify these paths according to their local data organization.
