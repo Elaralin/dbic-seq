@@ -1,6 +1,6 @@
-# DBiC
+# DBiC-seq
 
-DBiC is a deterministic barcoding framework for linking image-derived cellular phenotypes with sequencing-based molecular profiles at single-cell resolution.
+DBiC-seq (deterministic barcoding in cells for sequencing) is a spatially indexed platform that integrates live-cell array printing, multiplexed fluorescence imaging, in situ barcoding, and transcriptome profiling in the same cells.
 
 This repository contains the core computational workflows used for image-indexed cell assignment, morphology analysis, CAJAL-based shape profiling, species-mixing validation, drug-response analysis, and morphology-transcriptome integration.
 
@@ -29,10 +29,10 @@ Scripts for whole-cell segmentation and morphology extraction.
 - `01_segment_nuclei_full.py`  
   Full-image nuclear segmentation.
 
-- `02b_match_singlet_spots_to_nuclei_two_stage.py`  
+- `02_match_singlet_spots_to_nuclei.py`  
   Matching of spatially indexed singlet spots to segmented nuclei.
 
-- `03_extract_cells_fullimage_seeded_v3.py`  
+- `03_extract_cells_fullimage_seeded.py`  
   Seeded whole-cell segmentation and cell-shape extraction.
 
 ### `cajal/`
@@ -61,13 +61,13 @@ Scripts for human-mouse species-mixing validation.
 - `01_species_assignment.py`  
   Assignment of individual cells to human, mouse, or mixed populations.
 
-- `7_plot_species_fraction_hist.py`  
+- `07_plot_species_fraction_hist.py`  
   Visualization of species-assignment score distributions.
 
-- `8_plot_pseudobulk_species_markers.py`  
+- `08_plot_pseudobulk_species_markers.py`  
   Pseudobulk validation using species-specific marker genes.
 
-- `make_cm524_complexity_summary.py`  
+- `09_species_complexity_summary.py`  
   Summary of single-cell transcriptomic complexity.
 
 ### `drug_perturbation/`
@@ -155,7 +155,7 @@ CAJAL-based shape analysis can be applied to the segmented cell masks to obtain 
 
 The workflows use Python, R, MATLAB, and CAJAL depending on the analysis module.
 
-Exact software dependencies and package versions will be documented in the final release.
+Software requirements and environment-specific notes are provided in `environment/README.md`.
 
 ## Data availability
 
@@ -163,7 +163,7 @@ Large raw sequencing and imaging datasets are hosted separately from this code r
 
 ## Repository scope
 
-This repository provides the core computational workflows supporting the DBiC study. Development history, exploratory analyses, intermediate files, and nonessential figure-formatting scripts are not included.
+This repository provides the core computational workflows supporting the DBiC-seq study. Development history, exploratory analyses, intermediate files, and nonessential figure-formatting scripts are not included.
 
 ## License
 
