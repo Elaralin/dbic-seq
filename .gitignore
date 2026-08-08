@@ -1,0 +1,71 @@
+# Raw sequencing data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+
+# Imaging data
+*.tif
+*.tiff
+*.ome.tif
+*.ome.tiff
+*.nd2
+*.czi
+*.lif
+
+# Large analysis objects
+*.rds
+*.RData
+*.h5
+*.h5ad
+*.loom
+*.mtx
+*.mtx.gz
+*.npy
+*.npz
+*.pkl
+
+# Compressed archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Intermediate/output directories
+results/
+output/
+outputs/
+tmp/
+temp/
+cache/
+.cache/
+__pycache__/
+
+# Environments
+env/
+envs/
+venv/
+.venv/
+conda_pkgs/
+site-packages/
+
+# Logs
+*.log
+*.out
+*.err
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+_repo_build/
+.Rhistory
+.Rproj.user/
+*.asv
+*.py[cod]
