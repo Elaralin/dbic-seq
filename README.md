@@ -183,3 +183,7 @@ This repository provides the core computational workflows supporting the DBiC-se
 ## License
 
 See `LICENSE`.
+
+## Citation
+
+This repository accompanies the DBiC-seq study. Citation information will be updated upon publication.
