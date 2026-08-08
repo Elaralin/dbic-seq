@@ -39,19 +39,19 @@ Scripts for whole-cell segmentation and morphology extraction.
 
 Core scripts for CAJAL-based cell-shape analysis.
 
-- `06_pad_masks_for_cajal.py`  
+- `01_prepare_masks_for_cajal.py`  
   Preparation and padding of binary cell masks.
 
-- `07_cajal_compute_icdm_from_segmentation.py`  
+- `02_compute_icdm_from_segmentation.py`  
   Computation of intracellular distance matrices from segmented cell shapes.
 
-- `08_validate_icdm.py`  
+- `03_validate_icdm.py`  
   Validation of generated intracellular distance matrices.
 
-- `09_compute_gw_matrix.py`  
+- `04_compute_gw_matrix.py`  
   Computation of pairwise Gromov-Wasserstein shape distances.
 
-- `10_check_gw_output.py`  
+- `05_check_gw_output.py`  
   Quality-control checks for the resulting distance matrix.
 
 ### `species_mixing/`
@@ -61,13 +61,13 @@ Scripts for human-mouse species-mixing validation.
 - `01_species_assignment.py`  
   Assignment of individual cells to human, mouse, or mixed populations.
 
-- `07_plot_species_fraction_hist.py`  
+- `02_plot_species_fraction_hist.py`  
   Visualization of species-assignment score distributions.
 
-- `08_plot_pseudobulk_species_markers.py`  
+- `03_plot_pseudobulk_species_markers.py`  
   Pseudobulk validation using species-specific marker genes.
 
-- `09_species_complexity_summary.py`  
+- `04_species_complexity_summary.py`  
   Summary of single-cell transcriptomic complexity.
 
 ### `drug_perturbation/`
@@ -76,17 +76,25 @@ Core transcriptomic analysis of drug-perturbation experiments.
 
 #### `rna/`
 
-- extraction of matched single-cell transcriptomes
-- RNA-state analysis
-- marker analysis
-- comparison of RNA states across perturbations
+- `01_extract_matched_scRNA.py`  
+  Extraction of matched single-cell transcriptomic profiles.
+- `02_build_rna_atlas.py`  
+  Construction of the single-cell RNA-state atlas.
+- `03_identify_rna_state_markers.py`  
+  Identification of marker genes associated with RNA states.
+- `04_compare_rna_states_across_drugs.py`  
+  Comparison of RNA-state composition across perturbation conditions.
 
 #### `drug_response/`
 
-- drug metadata construction
-- pseudobulk aggregation
-- differential-expression analysis with edgeR
-- drug-response module analysis
+- `01_make_drug_metadata.py`  
+  Construction of perturbation metadata for indexed cells.
+- `02_pseudobulk.R`  
+  Pseudobulk aggregation of single-cell transcriptomic profiles.
+- `03_differential_expression_edgeR.R`  
+  Differential-expression analysis using edgeR.
+- `04_drug_response_modules.R`  
+  Analysis of drug-associated transcriptional response modules.
 
 ### `multimodal_integration/`
 

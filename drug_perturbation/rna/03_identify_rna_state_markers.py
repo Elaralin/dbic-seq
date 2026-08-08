@@ -19,7 +19,7 @@ counts_file = Path(
     )
 )
 
-outdir = ROOT / "6_single_cell/07_RNA_state_markers"
+outdir = ROOT / "6_single_cell/rna_state_markers"
 figdir = outdir / "figures"
 tabdir = outdir / "tables"
 figdir.mkdir(parents=True, exist_ok=True)

@@ -20,7 +20,7 @@ tab = pd.crosstab(
     normalize="index"
 )
 
-outdir = ROOT/"6_single_cell/08_RNA_state_vs_drug"
+outdir = ROOT/"6_single_cell/rna_state_vs_drug"
 outdir.mkdir(exist_ok=True)
 
 tab.to_csv(
