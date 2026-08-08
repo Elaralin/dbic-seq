@@ -1304,7 +1304,7 @@ def main():
     else:
         print(f"[OK] kept existing editable override table: {edit_override_tsv}")
 
-    print("[OK] spot segmentation + classification finished")
+    print("[OK] spot delineation + classification finished")
     print(f"[OK] output summary: {out_tsv}")
     print(f"[OK] output params: {params_tsv}")
     print(f"[OK] review candidates: {review_tsv}")

@@ -2,7 +2,7 @@
 
 DBiC-seq (deterministic barcoding in cells for sequencing) is a spatially indexed platform that integrates live-cell array printing, multiplexed fluorescence imaging, in situ barcoding, and transcriptome profiling in the same cells.
 
-This repository contains the core computational workflows used for image-indexed cell assignment, morphology analysis, CAJAL-based shape profiling, species-mixing validation, drug-response analysis, and morphology-transcriptome integration.
+This repository contains the core computational workflows used for spatially indexed cell assignment, morphology analysis, CAJAL-based shape profiling, species-mixing validation, drug-response analysis, and morphology-transcriptome integration.
 
 ## Repository structure
 
@@ -16,24 +16,24 @@ Scripts for image-guided spatial indexing and cell classification.
 - `01_make_spot_grid.py`  
   Construction of the spatial spot grid from the selected corner coordinates.
 
-- `02_segment_nuclei_by_spot.py`  
-  Nuclear segmentation within spatially indexed regions.
+- `02_delineate_nuclei_by_spot.py`  
+  Nuclear delineation within spatially indexed regions.
 
-- `03_segment_and_classify_spots.py`  
+- `03_delineate_and_classify_spots.py`  
   Spot-level cell classification and singlet/multiplet identification.
 
 ### `morphology/`
 
-Scripts for whole-cell segmentation and morphology extraction.
+Scripts for whole-cell delineation and morphology extraction.
 
-- `01_segment_nuclei_full.py`  
-  Full-image nuclear segmentation.
+- `01_delineate_nuclei_full_image.py`  
+  Full-image nuclear delineation.
 
 - `02_match_singlet_spots_to_nuclei.py`  
-  Matching of spatially indexed singlet spots to segmented nuclei.
+  Matching of spatially indexed singlet spots to delineated nuclei.
 
 - `03_extract_cells_fullimage_seeded.py`  
-  Seeded whole-cell segmentation and cell-shape extraction.
+  Seeded whole-cell delineation and cell-shape extraction.
 
 ### `cajal/`
 
@@ -42,8 +42,8 @@ Core scripts for CAJAL-based cell-shape analysis.
 - `01_prepare_masks_for_cajal.py`  
   Preparation and padding of binary cell masks.
 
-- `02_compute_icdm_from_segmentation.py`  
-  Computation of intracellular distance matrices from segmented cell shapes.
+- `02_compute_icdm_from_cell_masks.py`  
+  Computation of intracellular distance matrices from delineated cell masks.
 
 - `03_validate_icdm.py`  
   Validation of generated intracellular distance matrices.
@@ -152,7 +152,7 @@ Corner selection and spatial grid construction
 Spot-level cell classification
       |
       v
-Whole-cell segmentation
+Whole-cell delineation
       |
       v
 Morphology extraction and shape analysis
@@ -164,7 +164,7 @@ Single-cell transcriptomic analysis
 Morphology-transcriptome integration
 ```
 
-CAJAL-based shape analysis can be applied to the segmented cell masks to obtain pairwise morphology distances and downstream morphology manifolds.
+CAJAL-based shape analysis can be applied to the delineated cell masks to obtain pairwise morphology distances and downstream morphology manifolds.
 
 ## Requirements
 

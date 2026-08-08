@@ -197,7 +197,7 @@ def save_preview(red_norm, blue_norm, nuclei_lbl, cell_lbl, out_png):
     plt.figure(figsize=(8, 8))
     plt.imshow(show)
     plt.axis("off")
-    plt.title("Crop segmentation preview (cyan=nuclei, yellow=cells)")
+    plt.title("Crop delineation preview (cyan=nuclei, yellow=cells)")
     plt.tight_layout()
     plt.savefig(out_png, dpi=300)
     plt.close()
@@ -312,7 +312,7 @@ def main():
 
     save_preview(
         red_norm, blue_norm, nuclei_lbl, cell_lbl,
-        os.path.join(args.outdir, "crop_segmentation_preview.png")
+        os.path.join(args.outdir, "crop_delineation_preview.png")
     )
     save_qc_panel(
         red_norm, blue_norm, red_fg, red_bg, nuclei_lbl, cell_mask,
@@ -340,7 +340,7 @@ def main():
         f.write(f"min_cell_area\t{args.min_cell_area}\n")
         f.write(f"red_bg_sigma\t{args.red_bg_sigma}\n")
 
-    print("[OK] hybrid nuclei segmentation finished")
+    print("[OK] hybrid nuclei delineation finished")
     print(f"[OK] output dir: {args.outdir}")
 
 
