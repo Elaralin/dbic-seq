@@ -1,5 +1,9 @@
 # DBiC-seq
 
+<p align="center">
+  <img src="assets/DBiC-seq_overview.png" width="900">
+</p>
+
 DBiC-seq (deterministic barcoding in cells for sequencing) is a spatially indexed platform that integrates live-cell array printing, multiplexed fluorescence imaging, in situ barcoding, and transcriptome profiling in the same cells.
 
 This repository contains the core computational workflows used for spatially indexed cell assignment, morphology analysis, CAJAL-based shape profiling, species-mixing validation, drug-response analysis, and morphology-transcriptome integration.
