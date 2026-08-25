@@ -170,6 +170,17 @@ Morphology-transcriptome integration
 
 CAJAL-based shape analysis can be applied to the delineated cell masks to obtain pairwise morphology distances and downstream morphology manifolds.
 
+## Reproducible example
+
+A minimal runnable example for spatial grid construction and image-based cell classification is provided in `examples/spatial_cell_classification/`.
+
+The example includes a small C416 image subset, spatial corner coordinates, expected outputs, and a complete workflow script. From the repository root, run:
+
+    pip install -r environment/spatial_cell_classification_requirements.txt
+    bash examples/spatial_cell_classification/run_example.sh
+
+The workflow reconstructs the spatial grid and classifies indexed regions as empty, single-cell, or multiplet-containing spots.
+
 ## Requirements
 
 The workflows use Python, R, MATLAB, and CAJAL depending on the analysis module.
