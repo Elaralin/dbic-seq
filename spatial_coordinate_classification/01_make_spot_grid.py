@@ -152,10 +152,33 @@ def draw_overlay(df, red_img_path, blue_img_path, out_png, label_every=10, title
         ax.add_patch(Polygon(poly, fill=False, edgecolor="lime", linewidth=0.3))
 
         if (r["row"] - 1) % label_every == 0 and (r["col"] - 1) % label_every == 0:
+            spot_w = 0.5 * (
+                abs(r["x_tr"] - r["x_tl"]) +
+                abs(r["x_br"] - r["x_bl"])
+            )
+            spot_h = 0.5 * (
+                abs(r["y_bl"] - r["y_tl"]) +
+                abs(r["y_br"] - r["y_tr"])
+            )
+
+            x_text = r["x_tl"] + 0.03 * spot_w
+            y_text = r["y_tl"] + 0.08 * spot_h
+
             ax.text(
-                r["center_x"], r["center_y"],
-                f'{r["A_barcode"]}-{r["B_barcode"]}',
-                color="yellow", fontsize=6, ha="center", va="center"
+                x_text,
+                y_text,
+                f'{r["A_barcode"]}{r["B_barcode"]}',
+                color="white",
+                fontsize=5,
+                ha="left",
+                va="top",
+                bbox=dict(
+                    facecolor="black",
+                    alpha=0.60,
+                    edgecolor="none",
+                    pad=0.5
+                ),
+                zorder=10
             )
 
     ax.set_title(title)
@@ -210,7 +233,7 @@ def main():
     df.to_csv(args.out, sep="\t", index=False)
 
     # Save overlay image
-    title = f"50x50 DBiC spot grid overlay (corner_mode={args.corner_mode}, expand={args.expand})"
+    title = f"{args.rows}x{args.cols} DBiC spot grid overlay"
     draw_overlay(
         df,
         red_img_path=args.red_image,

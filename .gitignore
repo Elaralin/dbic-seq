@@ -69,3 +69,10 @@ _repo_build/
 .Rproj.user/
 *.asv
 *.py[cod]
+
+# Reviewer example runtime outputs
+examples/spatial_cell_classification/output/
+
+# Include TIFF images used by the spatial cell classification example
+!examples/spatial_cell_classification/input/C416_example_blue_nuclei.tif
+!examples/spatial_cell_classification/input/C416_example_red_actin.tif
